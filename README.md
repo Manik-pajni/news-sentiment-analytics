@@ -2,7 +2,6 @@
 
 Reproducible pipeline that asks whether **unusually high news volume and extreme GDELT tone**, mapped to listed equities, are associated with **next-trading-day abnormal returns**.
 
-This repository started as a student SQLite + GDELT + Yahoo Finance prototype. The current layout keeps that database and the original `scripts/` entry points, but ingestion is **idempotent**, matching is **auditable**, rolling features are **causal**, and event-study / backtest statistics are **computed from whatever data is actually in the database** (including empty).
 
 ```
 GDELT event CSVs ──► SQLite news_articles
