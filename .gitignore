@@ -1,0 +1,14 @@
+.venv/
+__pycache__/
+*.pyc
+.pytest_cache/
+db/*.db
+db/*.db-wal
+db/*.db-shm
+.cache/
+.nltk_data/
+logs/
+.env
+data/raw_gdelt/*.CSV
+data/raw_gdelt/*.csv
+data/raw_gdelt/*.zip

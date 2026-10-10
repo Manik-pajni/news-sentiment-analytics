@@ -1,0 +1,115 @@
+ticker,company_name,sector,yfinance_symbol
+AAPL,Apple Inc,Information Technology,AAPL
+MSFT,Microsoft Corporation,Information Technology,MSFT
+AMZN,Amazon.com Inc,Consumer Discretionary,AMZN
+GOOGL,Alphabet Inc Class A,Communication Services,GOOGL
+GOOG,Alphabet Inc Class C,Communication Services,GOOG
+META,Meta Platforms Inc,Communication Services,META
+NVDA,NVIDIA Corporation,Information Technology,NVDA
+TSLA,Tesla Inc,Consumer Discretionary,TSLA
+BRK.B,Berkshire Hathaway Inc,Financials,BRK-B
+JPM,JPMorgan Chase & Co,Financials,JPM
+JNJ,Johnson & Johnson,Health Care,JNJ
+V,Visa Inc,Financials,V
+PG,Procter & Gamble Co,Consumer Staples,PG
+UNH,UnitedHealth Group Inc,Health Care,UNH
+MA,Mastercard Inc,Financials,MA
+HD,Home Depot Inc,Consumer Discretionary,HD
+XOM,Exxon Mobil Corporation,Energy,XOM
+BAC,Bank of America Corp,Financials,BAC
+PFE,Pfizer Inc,Health Care,PFE
+KO,Coca-Cola Co,Consumer Staples,KO
+PEP,PepsiCo Inc,Consumer Staples,PEP
+AVGO,Broadcom Inc,Information Technology,AVGO
+COST,Costco Wholesale Corporation,Consumer Staples,COST
+ABBV,AbbVie Inc,Health Care,ABBV
+WMT,Walmart Inc,Consumer Staples,WMT
+DIS,Walt Disney Co,Communication Services,DIS
+ADBE,Adobe Inc,Information Technology,ADBE
+CRM,Salesforce Inc,Information Technology,CRM
+NFLX,Netflix Inc,Communication Services,NFLX
+CSCO,Cisco Systems Inc,Information Technology,CSCO
+CMCSA,Comcast Corporation,Communication Services,CMCSA
+ABT,Abbott Laboratories,Health Care,ABT
+TMO,Thermo Fisher Scientific Inc,Health Care,TMO
+ACN,Accenture plc,Information Technology,ACN
+ORCL,Oracle Corporation,Information Technology,ORCL
+NKE,Nike Inc,Consumer Discretionary,NKE
+MCD,McDonald's Corporation,Consumer Discretionary,MCD
+INTC,Intel Corporation,Information Technology,INTC
+AMD,Advanced Micro Devices Inc,Information Technology,AMD
+QCOM,QUALCOMM Inc,Information Technology,QCOM
+TXN,Texas Instruments Inc,Information Technology,TXN
+AMGN,Amgen Inc,Health Care,AMGN
+WFC,Wells Fargo & Co,Financials,WFC
+VZ,Verizon Communications Inc,Communication Services,VZ
+T,AT&T Inc,Communication Services,T
+UPS,United Parcel Service Inc,Industrials,UPS
+NEE,NextEra Energy Inc,Utilities,NEE
+PM,Philip Morris International,Consumer Staples,PM
+BMY,Bristol-Myers Squibb Co,Health Care,BMY
+CVX,Chevron Corporation,Energy,CVX
+LLY,Eli Lilly and Co,Health Care,LLY
+IBM,International Business Machines,Information Technology,IBM
+CAT,Caterpillar Inc,Industrials,CAT
+GE,GE Aerospace,Industrials,GE
+BA,Boeing Co,Industrials,BA
+SBUX,Starbucks Corporation,Consumer Discretionary,SBUX
+GS,Goldman Sachs Group Inc,Financials,GS
+MS,Morgan Stanley,Financials,MS
+BLK,BlackRock Inc,Financials,BLK
+SPGI,S&P Global Inc,Financials,SPGI
+RTX,RTX Corporation,Industrials,RTX
+COP,ConocoPhillips,Energy,COP
+SCHW,Charles Schwab Corp,Financials,SCHW
+INTU,Intuit Inc,Information Technology,INTU
+GILD,Gilead Sciences Inc,Health Care,GILD
+MDT,Medtronic plc,Health Care,MDT
+ISRG,Intuitive Surgical Inc,Health Care,ISRG
+NOW,ServiceNow Inc,Information Technology,NOW
+AMAT,Applied Materials Inc,Information Technology,AMAT
+PLD,Prologis Inc,Real Estate,PLD
+DE,Deere & Co,Industrials,DE
+BKNG,Booking Holdings Inc,Consumer Discretionary,BKNG
+LMT,Lockheed Martin Corporation,Industrials,LMT
+AXP,American Express Co,Financials,AXP
+LOW,Lowe's Companies Inc,Consumer Discretionary,LOW
+TGT,Target Corporation,Consumer Discretionary,TGT
+CVS,CVS Health Corporation,Health Care,CVS
+C,Citigroup Inc,Financials,C
+MO,Altria Group Inc,Consumer Staples,MO
+ELV,Elevance Health Inc,Health Care,ELV
+CI,Cigna Group,Health Care,CI
+MRK,Merck & Co Inc,Health Care,MRK
+HON,Honeywell International Inc,Industrials,HON
+UNP,Union Pacific Corporation,Industrials,UNP
+SYK,Stryker Corporation,Health Care,SYK
+ADI,Analog Devices Inc,Information Technology,ADI
+MU,Micron Technology Inc,Information Technology,MU
+ZTS,Zoetis Inc,Health Care,ZTS
+ADP,Automatic Data Processing Inc,Industrials,ADP
+MDLZ,Mondelez International Inc,Consumer Staples,MDLZ
+CSX,CSX Corporation,Industrials,CSX
+CB,Chubb Limited,Financials,CB
+MMC,Marsh & McLennan Companies,Financials,MMC
+PGR,Progressive Corporation,Financials,PGR
+SO,Southern Company,Utilities,SO
+DUK,Duke Energy Corporation,Utilities,DUK
+AON,Aon plc,Financials,AON
+FDX,FedEx Corporation,Industrials,FDX
+TJX,TJX Companies Inc,Consumer Discretionary,TJX
+PYPL,PayPal Holdings Inc,Financials,PYPL
+CME,CME Group Inc,Financials,CME
+ICE,Intercontinental Exchange Inc,Financials,ICE
+EQIX,Equinix Inc,Real Estate,EQIX
+APD,Air Products and Chemicals,Materials,APD
+SHW,Sherwin-Williams Co,Materials,SHW
+REGN,Regeneron Pharmaceuticals,Health Care,REGN
+VRTX,Vertex Pharmaceuticals,Health Care,VRTX
+SLB,Schlumberger NV,Energy,SLB
+EOG,EOG Resources Inc,Energy,EOG
+F,Ford Motor Co,Consumer Discretionary,F
+GM,General Motors Co,Consumer Discretionary,GM
+UBER,Uber Technologies Inc,Industrials,UBER
+LYFT,Lyft Inc,Industrials,LYFT
+SPY,SPDR S&P 500 ETF Trust,Benchmark,SPY

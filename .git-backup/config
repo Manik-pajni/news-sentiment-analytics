@@ -1,0 +1,17 @@
+[core]
+	repositoryformatversion = 0
+	filemode = true
+	bare = false
+	logallrefupdates = true
+	ignorecase = true
+	precomposeunicode = true
+[branch "main"]
+	vscode-merge-base = origin/main
+	remote = origin
+	merge = refs/heads/main
+[user]
+	name = Manik-pajni
+	email = manikp026@gmail.com
+[remote "origin"]
+	url = https://github.com/Manik-pajni/news-sentiment-analytics.git
+	fetch = +refs/heads/*:refs/remotes/origin/*

@@ -1,0 +1,181 @@
+alias,ticker
+Apple,AAPL
+Apple Inc,AAPL
+Apple Incorporated,AAPL
+AAPL,AAPL
+Microsoft,MSFT
+Microsoft Corp,MSFT
+Microsoft Corporation,MSFT
+MSFT,MSFT
+Amazon,AMZN
+Amazon.com,AMZN
+Amazon.com Inc,AMZN
+AMZN,AMZN
+Google,GOOGL
+Alphabet,GOOGL
+Alphabet Inc,GOOGL
+GOOGL,GOOGL
+GOOG,GOOG
+Meta,META
+Facebook,META
+Meta Platforms,META
+META,META
+NVIDIA,NVDA
+Nvidia,NVDA
+NVIDIA Corporation,NVDA
+NVDA,NVDA
+Tesla,TSLA
+Tesla Motors,TSLA
+Tesla Inc,TSLA
+TSLA,TSLA
+Berkshire Hathaway,BRK.B
+Berkshire,BRK.B
+BRK.B,BRK.B
+BRK-B,BRK.B
+JPMorgan,JPM
+JPMorgan Chase,JPM
+J P Morgan,JPM
+JPM,JPM
+Johnson & Johnson,JNJ
+Johnson and Johnson,JNJ
+JNJ,JNJ
+Visa Inc,V
+Visa,V
+Mastercard,MA
+Master Card,MA
+Procter & Gamble,PG
+Procter and Gamble,PG
+UnitedHealth,UNH
+United Health,UNH
+UnitedHealth Group,UNH
+Home Depot,HD
+Exxon Mobil,XOM
+Exxon,XOM
+ExxonMobil,XOM
+Bank of America,BAC
+Pfizer,PFE
+Coca-Cola,KO
+Coca Cola,KO
+PepsiCo,PEP
+Pepsi,PEP
+Broadcom,AVGO
+Costco,COST
+Costco Wholesale,COST
+AbbVie,ABBV
+Walmart,WMT
+Wal-Mart,WMT
+Disney,DIS
+Walt Disney,DIS
+Adobe,ADBE
+Salesforce,CRM
+Netflix,NFLX
+Cisco,CSCO
+Cisco Systems,CSCO
+Comcast,CMCSA
+Abbott,ABT
+Abbott Laboratories,ABT
+Thermo Fisher,TMO
+Accenture,ACN
+Oracle,ORCL
+Nike,NKE
+McDonalds,MCD
+McDonald's,MCD
+Intel,INTC
+Advanced Micro Devices,AMD
+AMD,AMD
+Qualcomm,QCOM
+Texas Instruments,TXN
+Amgen,AMGN
+Wells Fargo,WFC
+Verizon,VZ
+AT&T,T
+ATT,T
+United Parcel Service,UPS
+UPS,UPS
+NextEra,NEE
+NextEra Energy,NEE
+Philip Morris,PM
+Bristol-Myers,BMY
+Bristol Myers Squibb,BMY
+Chevron,CVX
+Eli Lilly,LLY
+Lilly,LLY
+IBM,IBM
+International Business Machines,IBM
+Caterpillar,CAT
+General Electric,GE
+Boeing,BA
+Starbucks,SBUX
+Goldman Sachs,GS
+Morgan Stanley,MS
+BlackRock,BLK
+Blackrock,BLK
+S&P Global,SPGI
+Raytheon,RTX
+RTX,RTX
+ConocoPhillips,COP
+Charles Schwab,SCHW
+Intuit,INTU
+Gilead,GILD
+Medtronic,MDT
+Intuitive Surgical,ISRG
+ServiceNow,NOW
+Applied Materials,AMAT
+Prologis,PLD
+Deere,DE
+John Deere,DE
+Booking Holdings,BKNG
+Booking.com,BKNG
+Lockheed Martin,LMT
+Lockheed,LMT
+American Express,AXP
+Lowes,LOW
+Lowe's,LOW
+Target,TGT
+CVS Health,CVS
+CVS,CVS
+Citigroup,C
+Citi,C
+Altria,MO
+Elevance,ELV
+Anthem,ELV
+Cigna,CI
+Merck,MRK
+Honeywell,HON
+Union Pacific,UNP
+Stryker,SYK
+Analog Devices,ADI
+Micron,MU
+Zoetis,ZTS
+ADP,ADP
+Mondelez,MDLZ
+CSX,CSX
+Chubb,CB
+Marsh McLennan,MMC
+Progressive,PGR
+Southern Company,SO
+Duke Energy,DUK
+Aon,AON
+FedEx,FDX
+Federal Express,FDX
+TJX,TJX
+PayPal,PYPL
+Paypal,PYPL
+CME Group,CME
+Intercontinental Exchange,ICE
+Equinix,EQIX
+Air Products,APD
+Sherwin-Williams,SHW
+Sherwin Williams,SHW
+Regeneron,REGN
+Vertex Pharmaceuticals,VRTX
+Vertex,VRTX
+Schlumberger,SLB
+EOG Resources,EOG
+Ford,F
+Ford Motor,F
+General Motors,GM
+Uber,UBER
+Lyft,LYFT
+SPDR S&P 500,SPY
+S&P 500 ETF,SPY
