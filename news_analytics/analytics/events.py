@@ -17,11 +17,7 @@ def chronological_split(dates: pd.Series, train_fraction: float) -> pd.Timestamp
 
 
 def detect_events(db_path: Path, benchmark: str, train_fraction: float = 0.7) -> dict[str, float | int]:
-    """
-    High-impact events: event_score at or above the train-period 90th percentile,
-    requiring positive volume z (unusual news volume vs the ticker's own history)
-    and non-null sentiment. Threshold never uses test-period or future scores.
-    """
+    """Flag HIGH_IMPACT days using the train-period 90th percentile of event_score."""
     with get_connection(db_path) as conn:
         feat = pd.read_sql_query("SELECT * FROM daily_features", conn)
         prices = pd.read_sql_query("SELECT ticker, trade_date FROM stock_prices", conn)
@@ -43,8 +39,7 @@ def detect_events(db_path: Path, benchmark: str, train_fraction: float = 0.7) ->
     if train_scores.empty:
         train_scores = scored["event_score"]
     threshold = float(train_scores.quantile(0.90))
-    # A non-positive train percentile is not "unusually high"; require the
-    # 90th percentile among strictly positive train scores when possible.
+    # if 90th percentile is 0, try again on just the positive scores
     if threshold <= 0:
         positive = train_scores[train_scores > 0]
         if len(positive) >= 5:

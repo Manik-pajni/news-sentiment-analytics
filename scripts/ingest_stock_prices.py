@@ -1,4 +1,4 @@
-"""Price ingest without simulated fallbacks."""
+"""Old entrypoint for Yahoo prices."""
 
 from datetime import datetime, timedelta
 

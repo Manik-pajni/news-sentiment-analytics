@@ -16,7 +16,7 @@ from news_analytics.entity.resolver import Universe, load_universe, resolve_ment
 
 logger = logging.getLogger("news_analytics")
 
-# GDELT 2.0 daily events export (tab-separated, no header)
+# official daily events file: tab-separated, no header
 COL_EVENT_ID = 0
 COL_SQLDATE = 1
 COL_ACTOR1 = 6
@@ -39,7 +39,7 @@ def _parse_gdelt_date(value) -> str | None:
 
 
 def _tone_to_sentiment(tone: float) -> float:
-    """GDELT AvgTone is theoretically [-100, 100]; typical values are near [-10, 10]."""
+    """AvgTone / 10, then clip to [-1, 1]."""
     try:
         return max(-1.0, min(1.0, float(tone) / 10.0))
     except (TypeError, ValueError):
@@ -60,7 +60,7 @@ def date_range(start: str, end: str) -> list[date]:
 
 
 def download_gdelt_daily(gdelt_dir: Path, start: str, end: str) -> int:
-    """Download official GDELT daily event files. Does not invent records."""
+    """Pull official GDELT daily files."""
     gdelt_dir.mkdir(parents=True, exist_ok=True)
     saved = 0
     for d in date_range(start, end):
@@ -68,7 +68,7 @@ def download_gdelt_daily(gdelt_dir: Path, start: str, end: str) -> int:
         dest = gdelt_dir / f"{ymd}.export.CSV"
         if dest.exists():
             saved += 1
-            continue
+            continue  # skip days we already have
         url = GDELT_EVENTS_URL.format(ymd=ymd)
         try:
             with urlopen(url, timeout=60) as resp:
@@ -144,7 +144,7 @@ def ingest_gdelt(
     ambiguity_gap: float,
     min_name_length: int,
 ) -> dict[str, int]:
-    """Ingest every local GDELT CSV. Date windows apply only to downloads, not ingest."""
+    """Read every local GDELT CSV into SQLite."""
     raw = load_raw_records(gdelt_dir)
     if raw.empty:
         logger.warning("No GDELT CSV files found in %s. Ingesting 0 events.", gdelt_dir)

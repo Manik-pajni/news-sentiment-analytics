@@ -2,7 +2,6 @@
 
 Reproducible pipeline that asks whether **unusually high news volume and extreme GDELT tone**, mapped to listed equities, are associated with **next-trading-day abnormal returns**.
 
-
 ```
 GDELT event CSVs ──► SQLite news_articles
          │                    │
@@ -22,6 +21,8 @@ Yahoo Finance adj. close ──► stock_prices (equities + SPY)
                          Streamlit app
 ```
 
+
+
 ## Technology stack
 
 Python 3.9+, SQLite, Pandas, RapidFuzz, yfinance, SciPy, Streamlit.
@@ -35,6 +36,8 @@ source .venv/bin/activate
 pip install -r requirements.txt
 cp .env.example .env
 ```
+
+
 
 ## End-to-end commands
 
@@ -68,7 +71,7 @@ Tests:
 python -m pytest -q
 ```
 
-Dashboard:
+Dashboard (Overview → Pipeline / Data → News Explorer → Ticker → Market results):
 
 ```bash
 streamlit run app.py

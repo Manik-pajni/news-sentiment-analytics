@@ -36,7 +36,7 @@ def _log_run(db_path: Path, step: str, status: str, message: str, records: int |
 
 
 def fetch_window(days: int, *, today: date | None = None) -> tuple[str, str]:
-    """Inclusive calendar window of `days` days ending on `today` (default: local today)."""
+    """Last N calendar days, including today."""
     if days < 1:
         raise ValueError("fetch_days must be >= 1")
     end = today or date.today()

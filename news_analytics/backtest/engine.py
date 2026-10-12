@@ -34,13 +34,7 @@ def run_backtest(
     slippage_bps: float = 5.0,
     max_positions: int = 10,
 ) -> dict:
-    """
-    Long-only, 1-day holding after the signal is observable.
-    Entry: next trading day after HIGH_IMPACT with positive mean sentiment.
-    Weights: equal among names that day, capped at max_positions by event_score.
-    Costs charged on one-way turnover (entry+exit of a 1-day name = 2x weight).
-    Thresholds come from detect_events (train quantile only).
-    """
+    """1-day long-only book on HIGH_IMPACT names with positive sentiment."""
     with get_connection(db_path) as conn:
         events = pd.read_sql_query(
             """
@@ -124,7 +118,7 @@ def run_backtest(
             w_prev = (1.0 / len(prev_names)) if prev_names and t in prev_names else 0.0
             w_now = weights.get(t, 0.0)
             turnover += abs(w_now - w_prev)
-        # 1-day book: names also exit at end of day
+        # we also exit the same names at the close
         for t in current_names:
             turnover += weights.get(t, 0.0)
         costs = turnover * cost_rate
@@ -149,7 +143,7 @@ def run_backtest(
                 "turnover": turnover,
             }
         )
-        prev_names = set()  # 1-day hold; next day starts flat
+        prev_names = set()  # start flat the next day
 
     daily = pd.DataFrame(daily_rows)
     trade_df = pd.DataFrame(trades)

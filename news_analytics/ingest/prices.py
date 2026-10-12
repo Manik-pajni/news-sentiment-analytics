@@ -44,16 +44,10 @@ def ingest_stock_prices(
     timeout: int = 30,
     max_retries: int = 3,
 ) -> dict[str, int]:
-    """
-    Store Yahoo Finance daily bars. Prefer Adj Close for returns.
-
-    Limitation: Yahoo adjusted prices can be revised retrospectively and omit
-    some delisted names (survivorship). Missing symbols are logged, never filled
-    with simulated prices.
-    """
+    """Yahoo daily prices. I use Adj Close for returns."""
     inserted = 0
     failed = 0
-    # yfinance end is exclusive for some versions; pad one day.
+    # yfinance end date is exclusive, so I add a day
     end_pad = (pd.Timestamp(end) + pd.Timedelta(days=1)).strftime("%Y-%m-%d")
     unique = []
     seen = set()

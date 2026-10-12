@@ -1,4 +1,4 @@
-"""Backward-compatible GDELT ingest entrypoint (no synthetic duplication)."""
+"""Old entrypoint that just calls the package ingest."""
 
 from news_analytics.config import load_settings
 from news_analytics.entity.resolver import load_universe

@@ -1,4 +1,4 @@
-"""Environment-driven configuration. Secrets never belong in source control."""
+"""Settings from .env."""
 
 from __future__ import annotations
 

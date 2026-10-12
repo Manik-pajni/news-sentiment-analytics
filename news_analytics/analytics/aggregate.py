@@ -45,7 +45,7 @@ def aggregate_daily_metrics(db_path: Path) -> int:
 
 
 def _causal_rolling_mean(values: pd.Series, window: int) -> pd.Series:
-    """Mean of current and prior window-1 observations (no future rows)."""
+    """Rolling mean that only looks backward."""
     return values.rolling(window=window, min_periods=max(2, window // 2)).mean()
 
 
@@ -54,11 +54,7 @@ def _causal_rolling_std(values: pd.Series, window: int) -> pd.Series:
 
 
 def build_daily_features(db_path: Path, benchmark: str) -> int:
-    """
-    Align ticker-days to the benchmark trading calendar.
-    Rolling statistics use only dates <= current row.
-    Volume z-score is null when history is short or variance is zero.
-    """
+    """Daily features on the trading calendar. Rolling stats don't peek ahead."""
     with get_connection(db_path) as conn:
         daily = pd.read_sql_query("SELECT * FROM daily_metrics", conn)
         prices = pd.read_sql_query("SELECT ticker, trade_date, adj_close FROM stock_prices", conn)
@@ -124,7 +120,7 @@ def build_daily_features(db_path: Path, benchmark: str) -> int:
         z = (vol - mean) / std
         z = z.where(std.notna() & (std > 1e-12) & mean.notna())
         merged["volume_z_20"] = z
-        # Combined score uses only contemporaneous (already-observed) features.
+        # score = sentiment × unusual volume (today only)
         sent = merged["mean_sentiment"].fillna(0.0)
         merged["event_score"] = sent * merged["volume_z_20"].clip(lower=0)
         merged["is_trading_day"] = 1
@@ -188,10 +184,7 @@ def build_daily_features(db_path: Path, benchmark: str) -> int:
 
 
 def attach_next_day_prices(db_path: Path, benchmark: str) -> int:
-    """
-    Store next-session raw close change on daily_metrics for backward compatibility.
-    This is NOT an abnormal return. Abnormal returns live in event-study tables.
-    """
+    """Fill next-session close on daily_metrics (raw change, not vs market)."""
     with get_connection(db_path) as conn:
         daily = pd.read_sql_query("SELECT company, date FROM daily_metrics", conn)
         prices = pd.read_sql_query(
@@ -213,7 +206,7 @@ def attach_next_day_prices(db_path: Path, benchmark: str) -> int:
             updates.append((None, None, None, r.company, r.date))
             continue
         d0 = pd.Timestamp(r.date)
-        # Close on or after news date (information set for display only)
+        # close on or after the news date
         pos = series.index.searchsorted(d0)
         if pos >= len(series.index):
             updates.append((None, None, None, r.company, r.date))

@@ -218,7 +218,7 @@ CREATE INDEX IF NOT EXISTS idx_events_date ON market_events(date);
 
 
 def create_tables(db_path: str | Path, reset: bool = False) -> None:
-    """Create schema idempotently. Never drops data unless reset=True."""
+    """Create tables. Only wipe if reset=True."""
     path = Path(db_path)
     with get_connection(path) as conn:
         if reset:
@@ -249,7 +249,7 @@ def create_tables(db_path: str | Path, reset: bool = False) -> None:
 
 
 def _migrate_legacy_stock_prices(conn) -> None:
-    """Older builds used stock_prices(company, date, close_price)."""
+    """Rename leftover stock_prices columns if this is an old DB."""
     row = conn.execute(
         "SELECT name FROM sqlite_master WHERE type='table' AND name='stock_prices'"
     ).fetchone()
@@ -290,7 +290,7 @@ def _migrate_legacy_stock_prices(conn) -> None:
 
 
 def _migrate_columns(conn) -> None:
-    """Add columns to legacy tables without dropping existing rows."""
+    """Add missing columns on old DBs."""
     specs = {
         "news_articles": {
             "actor1": "TEXT",

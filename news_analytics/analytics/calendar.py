@@ -4,7 +4,7 @@ import pandas as pd
 
 
 def next_trading_day(trading_days: pd.DatetimeIndex, asof) -> pd.Timestamp | None:
-    """First trading session strictly after asof. Never returns asof itself."""
+    """Next session after the news date."""
     days = trading_days.sort_values().unique()
     ts = pd.Timestamp(asof).normalize()
     pos = days.searchsorted(ts, side="right")
@@ -24,7 +24,7 @@ def trading_days_from_prices(prices: pd.DataFrame, benchmark: str) -> pd.Datetim
 def window_trading_days(
     trading_days: pd.DatetimeIndex, start_exclusive, n_days: int
 ) -> list[pd.Timestamp]:
-    """Next n trading days strictly after start_exclusive."""
+    """Next n sessions after start."""
     out = []
     cursor = start_exclusive
     for _ in range(n_days):

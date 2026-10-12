@@ -24,16 +24,12 @@ def market_model_abnormal(
     estimation_window: int = 60,
     gap: int = 1,
 ) -> float | None:
-    """
-    Estimate alpha/beta on dates strictly before the event (with a gap),
-    then AR = R - (alpha + beta * Rm) on the execution date.
-    Distinct from simple benchmark-adjusted returns (R - Rm).
-    """
+    """Market-model AR: fit alpha/beta before the event, then residual on the trade day."""
     aligned = pd.concat([stock_rets.rename("r"), bench_rets.rename("m")], axis=1).dropna()
     if aligned.empty:
         return None
     event = pd.Timestamp(event_date)
-    # Estimation sample: last `estimation_window` sessions ending `gap` days before event
+    # last 60 sessions, leaving a 1-day gap before the event
     eligible = aligned.index[aligned.index < event]
     if len(eligible) < gap + 10:
         return None
@@ -75,11 +71,7 @@ def execution_abnormal_return(
     trading_days: pd.DatetimeIndex,
     horizon: int = 1,
 ) -> float | None:
-    """
-    Signal is treated as observable at the end of publish_date (no intraday stamp).
-    Trade/measure on subsequent trading sessions only.
-    horizon=1 -> next trading day; >1 -> cumulative abnormal return over next N days.
-    """
+    """Stock minus market on the next session(s) after the news date."""
     exec0 = next_trading_day(trading_days, publish_date)
     if exec0 is None:
         return None

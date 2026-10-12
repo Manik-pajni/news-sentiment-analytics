@@ -8,7 +8,7 @@ from rapidfuzz import fuzz, process
 
 from news_analytics.entity.normalize import clean_mention, is_generic
 
-# Single-letter and ultra-short tickers must never substring-match.
+# don't fuzzy-match 1-2 letter tickers
 SHORT_TICKER_MAX_LEN = 2
 
 
@@ -61,8 +61,7 @@ def resolve_mention(
 
     if mention_norm in universe.alias_to_ticker:
         ticker = universe.alias_to_ticker[mention_norm]
-        # Exact alias / ticker equality only. Short tickers allowed here because
-        # the entire mention equals the alias, not a substring.
+        # exact alias match is fine even for short tickers
         return MatchResult(ticker, "deterministic_alias", 1.0, "mapped", "exact_alias", raw, mention_norm)
 
     tokens = mention_norm.split()
@@ -70,7 +69,7 @@ def resolve_mention(
         ticker = universe.alias_to_ticker[mention_norm]
         return MatchResult(ticker, "deterministic_alias", 1.0, "mapped", "exact_token", raw, mention_norm)
 
-    # Do not fuzzy-match short or ticker-like strings.
+    # skip fuzzy if the mention is too short
     if len(mention_norm) < min_name_length or (len(tokens) == 1 and len(mention_norm) <= SHORT_TICKER_MAX_LEN):
         return MatchResult(
             None, "rejected", 0.0, "unmatched", "too_short_for_fuzzy", raw, mention_norm

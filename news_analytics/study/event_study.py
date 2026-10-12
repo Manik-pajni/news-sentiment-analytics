@@ -38,10 +38,7 @@ def _welch(a: np.ndarray, b: np.ndarray) -> tuple[float, float, float, float]:
 
 
 def _clustered_se_pvalue(event_ar: pd.DataFrame) -> tuple[float | None, str]:
-    """
-    OLS of AR on event dummy with ticker-clustered variance (Liang-Zeger style).
-    Remaining limitation: overlapping windows still induce date clustering.
-    """
+    """Ticker-clustered p-value for the event dummy."""
     if event_ar.empty or event_ar["ticker"].nunique() < 3:
         return None, "insufficient_clusters"
     y = event_ar["abnormal_return"].to_numpy()

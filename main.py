@@ -1,4 +1,4 @@
-"""Recompute on local data only (does not download). Prefer: python -m news_analytics.pipeline --fetch"""
+"""Rerun on whatever is already on disk (won't download)."""
 
 from news_analytics.pipeline import main as pipeline_main
 
